@@ -1,14 +1,18 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      nodejs: 16
     commands:
-      - echo Installing project dependencies...
+      - echo "Installing Node.js 18.15.0"
+      - curl -fsSL https://nodejs.org/dist/v18.15.0/node-v18.15.0-linux-x64.tar.gz | tar -xzC /usr/local --strip-components=1
+      - echo "Node.js version:"
+      - node -v
+  pre_build:
+    commands:
+      - echo Installing dependencies...
       - npm install
   build:
     commands:
-      - echo Initiating build...
+      - echo Building the project...
       - npm run build
   post_build:
     commands:

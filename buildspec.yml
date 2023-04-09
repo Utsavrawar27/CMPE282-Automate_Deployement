@@ -1,14 +1,8 @@
 version: 0.2
 phases:
   install:
-    commands:
-      - echo "Installing Node.js 18.15.0 using nvm"
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      - . ~/.nvm/nvm.sh
-      - nvm install 18.15.0
-      - nvm use 18.15.0
-      - echo "Node.js version:"
-      - node -v
+    runtime-versions:
+      nodejs: latest
   pre_build:
     commands:
       - echo Installing dependencies...
